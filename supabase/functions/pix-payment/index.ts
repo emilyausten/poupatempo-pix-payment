@@ -335,7 +335,7 @@ serve(async (req) => {
         pixCode: data.data.pix.copyPaste || data.data.pix.qrcode,
         qrCode: data.data.pix.qrcodeUrl, // Para exibir a imagem do QR Code (base64)
         qr_code_base64: data.data.pix.qrcodeUrl,
-        copyPaste: data.data.pix.copyPaste, // Código PIX real para copiar e colar
+        copyPaste: data.data.pix.copyPaste || data.data.pix.qrcode, // Código PIX real para copiar e colar (fallback para qrcode se copyPaste for null)
         amount: amountInCents / 100, // Converter de volta para reais para compatibilidade
         paymentMethod: 'pix',
         transaction: data.data,

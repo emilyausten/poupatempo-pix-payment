@@ -318,10 +318,10 @@ const Pagamento = () => {
   };
 
   const handleCopyPixCode = async () => {
-    const pixCode = getPixCode();
-    if (pixCode) {
+    const copyPasteCode = getCopyPasteCode();
+    if (copyPasteCode) {
       try {
-        await navigator.clipboard.writeText(pixCode);
+        await navigator.clipboard.writeText(copyPasteCode);
         setCopied(true);
         toast({
           title: "Copiado!",
@@ -464,7 +464,7 @@ const Pagamento = () => {
                     <div className="flex justify-center">
                       <div className="bg-white p-4 rounded-lg border-2 border-gray-200">
                         <img
-                          src={`data:image/png;base64,${pixCode}`}
+                          src={pixCode}
                           alt="QR Code PIX"
                           className="w-48 h-48 mx-auto"
                           style={{ maxWidth: "100%", height: "auto" }}
